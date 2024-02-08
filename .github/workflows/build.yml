@@ -10,9 +10,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-	  contents: write
-	concurrency:
-	  group: ${{ github.workflow }}-${{ github.ref }}
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -50,6 +50,3 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./site
-
-
-
