@@ -15,10 +15,10 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.8
 
@@ -30,7 +30,7 @@ jobs:
       run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
 
     - name: Cache dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
