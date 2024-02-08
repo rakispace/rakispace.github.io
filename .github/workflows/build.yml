@@ -21,7 +21,7 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pelican[doc]
+        python -m pip install -r ./requirements.txt
 
     - name: Build Pelican Site
       run: |
@@ -31,7 +31,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
+        publish_dir: ./site
 
 
 
