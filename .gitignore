@@ -1,0 +1,24 @@
+# .gitignore for a Pelican project
+
+# Python
+.python-version
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyz
+
+# Pelican
+__pycache__/
+.cache/
+
+# Virtual environment
+venv/
+.env/
+.env
+
+# Compiled files
+*.pyc
+*.pyo
+*.pyd
+
