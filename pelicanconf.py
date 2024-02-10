@@ -15,8 +15,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Ändere das Ausgabeverzeichnis auf "doc"
-OUTPUT_PATH = 'doc/'
+# Ändere das Ausgabeverzeichnis auf "docs/"
+OUTPUT_PATH = 'docs/'
 
 # Blogroll
 LINKS = (
