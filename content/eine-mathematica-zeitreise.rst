@@ -1,8 +1,8 @@
-==================================================================
+===================================================================================
 Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine im Jahr 2009
-==================================================================
+===================================================================================
 :author: Ralf Kinast 
-:date: 15. März 2009
+:date: 15.03.2009
 
 Willkommen zurück, technikbegeisterte Leser! In diesem Blogeintrag werde ich über ein faszinierendes Experiment
 berichten, das eine Mischung aus Nostalgie und technischer Finesse bietet. Als leidenschaftlicher Softwareentwickler
@@ -40,7 +40,10 @@ Schritt 4: Anpassungen für die Virtualisierung
 Der Code von Mathematica 3.0 stammte aus einer Ära, in der an VMs kaum zu denken war. Daher mussten einige Anpassungen vorgenommen werden.
   Das Ändern von Hardwarezugriffen und das Beheben von Kompatibilitätsproblemen waren entscheidend, um
   sicherzustellen, dass Mathematica auf der VM reibungslos lief.
-Schritt 5: Installation und Test-------------------------------Nachdem ich alle
+
+Schritt 5: Installation und Test
+--------------------------------
+Nachdem ich alle
 
 
 

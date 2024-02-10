@@ -1,5 +1,5 @@
 AUTHOR = 'Ralf Kinast'
-SITENAME = 'Rakispace - Mein Zu Hause Im Web'
+SITENAME = 'rakispace - Mein Zu Hause Im Web'
 SITEURL = ""
 
 PATH = "content"
@@ -14,6 +14,9 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
+
+# Ändere das Ausgabeverzeichnis auf "doc"
+OUTPUT_PATH = 'doc/'
 
 # Blogroll
 LINKS = (
