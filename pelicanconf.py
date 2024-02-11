@@ -16,7 +16,7 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Ändere das Ausgabeverzeichnis auf "docs/" - Default ist output/
-#OUTPUT_PATH = 'docs/'
+OUTPUT_PATH = 'docs/'
 
 # Blogroll
 LINKS = (
