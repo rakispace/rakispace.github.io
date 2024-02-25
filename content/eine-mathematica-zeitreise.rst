@@ -1,23 +1,23 @@
-===================================================================================
-Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine im Jahr 2009
-===================================================================================
-:author: Ralf Kinast 
-:date: 15.03.2009
+.. title: Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine
+.. author: Ralf Kinast 
+.. date: 15.03.2009
+.. tags: mathematica, virtual box, windows 3.11
+.. category: blog
+.. copyright: This document has been placed in the public domain
 
-Willkommen zurück, technikbegeisterte Leser! In diesem Blogeintrag werde ich über ein faszinierendes Experiment
-berichten, das eine Mischung aus Nostalgie und technischer Finesse bietet. Als leidenschaftlicher Softwareentwickler
-und Physiker habe ich mich auf eine Zeitreise begeben, um meine eigene Version von Mathematica aus Studentenzeiten auf
-einem VM-Setup mit Windows 3.11 zu portieren. Alles unter der Schirmherrschaft meines geliebten Linux/Ubuntu als
-Host-Betriebssystem.
+======================================================================
+Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine
+======================================================================
 
+.. contents: Inhalt
 
 Herzlich willkommen, liebe Leser, zu einem weiteren Blogeintrag, in dem ich meine Experimente mit Software und Technik teile.
-Dieses Mal tauchen wir tief in die Welt von Mathematica ein, dem beeindruckenden Programm von Stephen Wolfram.
+Dieses Mal tauchen wir in die Welt von Mathematica ein, dem Programm von Stephen Wolfram.
 Ich werde euch zeigen, wie ich es auf eine virtuelle Maschine (VM) portiert habe – und das Ganze von einer uralten Diskettenversion!
 
 Hintergrund
 -----------
-Mathematica ist schon seit Jahren ein fester Bestandteil der wissenschaftlichen und mathematischen Softwarelandschaft. Aber wie wäre es, wenn wir einen Blick zurück in das Jahr 2009 werfen und versuchen würden, dieses leistungsstarke Tool auf einer virtuellen Maschine laufen zu lassen?
+Mathematica ist schon seit Jahren ein fester Bestandteil der wissenschaftlichen und mathematischen Softwarelandschaft. Aber wie wäre es, wenn wir einen Blick zurück in die Vergangenheit werfen und versuchen würden, dieses Tool auf einer virtuellen Maschine laufen zu lassen?
 
 Schritt 1: Beschaffung der Diskettenversion von Mathematica
 -----------------------------------------------------------
@@ -63,3 +63,127 @@ Nachdem ich alle
 
 
 
+Zugegebenermaßen ist das ausgraben von mehr als 20 Jahre alter Software aus Zeiten von Windo    ws 3.11 schon ein etwas
+ungewöhnliches Projekt. Ich hatte die Studentenversion von Mathematica (Wolfram Research) wä    hrend meines Studiums
+intensiv genutzt. Nun sind mir die Floppies, vier Stück an der Zahl bei einer Aufräumaktion     wieder in die Hände
+gefallen. Aber anstatt sich von Altlasten zu trennen, manche Menschen gehören halt zu den Jä    ger und Sammlern, habe ich
+mir gedacht das es doch schön wäre das Alte Schätzchen doch noch mal anzuschauen.
+
+OK, soweit so gut.
+
+
+Floppy sichern
+===========================
+Da ich allerdings über kein funktionsfähiges Lesegerät verfüge und mir auch keines mehr zule    gen wollte, wurden erstmal
+alle verfügbaren Backups der letzten 25 Jahre zusammengeführt. Und siehe da, auf einer alten     HDD war dann doch ein
+tar-Archiv der vier Floppies.
+
+Das tar Archiv hatte dann ausgepackt folgende Struktur.
+
+.. code-block:: console
+
+   ralf@spectre:~/Develop/tmp$ tree Mathematica/
+   Mathematica/
+   ├── Disk1
+   │   ├── files
+   │   │   ├── document.pak
+   │   │   ├── install1.bmp
+   │   │   ├── install.ex$
+   │   │   ├── install.ins
+   │   │   ├── math.hl_
+   │   │   ├── mma.bmp
+   │   │   ├── setup.exe
+   │   │   └── wmathexe.1
+   │   └── minstall.exe
+   ├── Disk2
+   │   └── files
+   │       ├── bttncur.dl_
+   │       ├── commdlg.dll
+   │       ├── ctl3d.dl_
+   │       ├── defaults.m_
+   │       ├── init.m_
+   │       ├── install2.bmp
+   │       ├── math22.ini
+   │       ├── mathblst.dl_
+   │       ├── math.ex_
+   │       ├── mcomm.dl_
+   │       ├── mmex.dl_
+   │       ├── post.dl_
+   │       ├── ps.tx_
+   │       ├── shell.dll
+   │       ├── winhelp.ex_
+   │       ├── winmem32.dl_
+   │       └── wmathexe.2
+   ├── Disk3
+   │   └── files
+   │       ├── algebra.pak
+   │       ├── calculus.pak
+   │       ├── ccommon.pak
+   │       ├── discrete.pak
+   │       ├── examples.pak
+   │       ├── gcommon.pak
+   │       ├── geometry.pak
+   │       ├── graphics.pak
+   │       ├── install3.bmp
+   │       ├── integrat.pak
+   │       ├── linearal.pak
+   │       ├── miscella.pak
+   │       ├── numberth.pak
+   │       ├── numerica.pak
+   │       ├── preload.pak
+   │       ├── programm.pak
+   │       ├── scommon.pak
+   │       ├── statisti.pak
+   │       ├── utilitie.pak
+   │       └── wmathexe.3
+   └── Disk4
+       └── files
+           ├── install4.bmp
+           ├── notebook.pak
+           └── wmathexe.4
+
+   8 directories, 49 files
+
+
+
+
+
+
+
+
+
+Floppy Images erstellen
+=======================
+
+Im nächsten Schritt galt es aus den Backups wieder von einer virtuellen Maschine lesbare Floppy Images zu erstellen.
+
+.. code-block:: console
+
+  ralf@spectre:~/Develop/tmp$ mkfs.msdos disk1.img
+  ralf@spectre:~/Develop/tmp$ mkfs.msdos disk2.img
+  ralf@spectre:~/Develop/tmp$ mkfs.msdos disk3.img
+  ralf@spectre:~/Develop/tmp$ mkfs.msdos disk4.img
+
+  ralf@spectre:~/Develop/tmp$ ls -l disk*
+  -rwxrwx--- 1 ralf ralf 1474560 Okt 17 22:14 disk1.img
+  -rwxrwx--- 1 ralf ralf 1474560 Okt 17 22:16 disk2.img
+  -rwxrwx--- 1 ralf ralf 1474560 Okt 17 22:17 disk3.img
+  -rwxrwx--- 1 ralf ralf 1474560 Okt 17 22:17 disk4.img
+
+  ralf@spectre:~/Develop/tmp$ sudo mkdir /media/floppy
+
+  ralf@spectre:~/Develop/tmp$ sudo mount -o loop disk1.img /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo cp -av Mathematica/Disk1/* /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo umount floppy
+
+  ralf@spectre:~/Develop/tmp$ sudo mount -o loop disk2.img /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo cp -av Mathematica/Disk2/* /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo umount /media/floppy
+
+  ralf@spectre:~/Develop/tmp$ sudo mount -o loop disk3.img /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo cp -av Mathematica/Disk3/* /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo umount /media/floppy
+
+  ralf@spectre:~/Develop/tmp$ sudo mount -o loop disk4.img /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo cp -av Mathematica/Disk4/* /media/floppy/
+  ralf@spectre:~/Develop/tmp$ sudo umount /media/floppy
