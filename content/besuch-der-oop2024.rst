@@ -4,7 +4,7 @@ oop2024-Rückblick
 
 :title: Besuch der OOP 2024
 :author: Ralf Kinast 
-:date: 05.02.2024
+:date: 2024-02-05
 :tags: software, architecture, AI, KI, 
 :category: blog
 :copyright: This document has been placed in the public domain
