@@ -2,12 +2,12 @@
 oop2024-Rückblick
 =================
 
-.. title: Besuch der OOP 2024
-.. author: Ralf Kinast 
-.. date: 05.02.2024
-.. tags: software, architecture, AI, KI, 
-.. category: blog
-.. copyright: This document has been placed in the public domain
+:title: Besuch der OOP 2024
+:author: Ralf Kinast 
+:date: 05.02.2024
+:tags: software, architecture, AI, KI, 
+:category: blog
+:copyright: This document has been placed in the public domain
 
 
 Mein diesjähriger Besuch der oop2024 verspricht eine faszinierende Reise in die Welt der Künstlichen Intelligenz (KI) in der Softwareentwicklung. Mit hochkarätigen Vorträgen und Workshops von renommierten Sprechern wird die Veranstaltung den roten Faden der KI-Revolution in der Softwarebranche verfolgen.

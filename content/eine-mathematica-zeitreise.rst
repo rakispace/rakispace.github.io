@@ -1,13 +1,13 @@
-.. title: Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine
-.. author: Ralf Kinast 
-.. date: 15.03.2009
-.. tags: mathematica, virtual box, windows 3.11
-.. category: blog
-.. copyright: This document has been placed in the public domain
-
 ======================================================================
 Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine
 ======================================================================
+
+:title: Die Zeitreise von Mathematica : Portierung auf eine virtuelle Maschine
+:author: Ralf Kinast 
+:date: 15.03.2009
+:tags: mathematica, virtual box, windows 3.11
+:category: blog
+:copyright: This document has been placed in the public domain
 
 .. contents: Inhalt
 
